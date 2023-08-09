@@ -1,44 +1,38 @@
 import React from "react"
 import Logo from "../img/logo.png"
 import { Link } from "react-router-dom"
+import "../App.css"
+import Users from "../pages/Users"
 
 const Navbar=()=>{
     return(
-        <div className="navbar">
+        <nav className="navbar">
             <div className="container">
-                <div className="logo">
-                    <img src={Logo} alt=""/>
-                </div>
+                <img className="logo" src={Logo} alt=""/>
                 <div className="links">
-
+                    <Link className="link" to='/users'>
+                        <h6 className="users-h6">Kullanıcılar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                    </Link>
                     <Link className="link" to="/?cat=art">
-                        <h6>ART</h6>
-                    </Link>
-                    <Link className="link" to="/?cat=science">
-                        <h6>SCIENCE</h6>
-                    </Link>
-                    <Link className="link" to="/?cat=technology">
-                        <h6>TECH</h6>
-                    </Link>
-                    <Link className="link" to="/?cat=cinema">
-                        <h6>CINEMA</h6>
+                        <h6>Film Listesi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     </Link>
                     <Link className="link" to="/?cat=design">
-                        <h6>DESIGN</h6>
+                        <h6>Hesap Bilgileri&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     </Link>
-                    <Link className="link" to="/?cat=food">
-                        <h6>FOOD</h6>
+                    <Link className="link" to="/login">
+                        <h6>Çıkış Yap</h6>
                     </Link>
 
-                    <form>
+                    {/*<form>
                         <input type="search" placeholder="Search..."/>
                         <Link className="link" to= "/register"/>
                     </form>
                     <span>John</span>
                     <span>Logout</span>
+                    */}
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }
 

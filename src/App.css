@@ -1,16 +1,11 @@
 .App {
   text-align: center;
+  overflow: auto;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -28,11 +23,290 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  background-color: #9c521a;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  height: 60px;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 }
+
+.logo {
+  margin-left: 45px;
+  height: 55px;
+  width: auto;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+}
+
+.links {
+  margin-right: 30px;
+  position: fixed;
+  left: 700px;
+  top: -15px;
+}
+
+.users-h6 {
+  color: black;
+}
+
+.main {
+  background-image: linear-gradient(79deg, #373333, #5c5a58 48%, #845309);
+  height: auto;
+}
+
+.film-name {
+  color: white;
+  text-align: left;
+  position: fixed;
+  top: 145px;
+  left: 100px;
+}
+
+.film-poster {
+  width: auto;
+  height: 250px;
+  position: fixed;
+  left: 100px;
+  top: 230px;
+}
+
+
+.film-name {
+  color: white;
+  text-align: left;
+  position: fixed;
+  top: 50px;
+  left: 100px;
+}
+
+.film-poster {
+  width: auto; /* Genişlik değeri */
+  height: 250px; /* Yükseklik değeri */
+  position: fixed;
+  left: 100px;
+  top: 130px;
+}
+
+.release-date, .genre, .film-time, .film-cast {
+  text-align: left;
+  border: 2px solid rgb(70, 4, 4);
+  padding: 10px;
+}
+
+.film-cast {
+  max-width: 300px ;
+  position: fixed;
+  left: 290px;
+  top: 180px;
+}
+
+
+.film-details {
+  display: flex;
+  position: fixed;
+  left: 290px;
+  top: 115px;
+}
+
+.comments {
+  position: fixed;
+  left: 290px;
+  top: 305px;
+  text-align: left;
+  border: 2px solid rgb(70, 4, 4);
+  padding: 10px;
+}
+
+.comment-boxes {
+  position: fixed;
+  left: 290px;
+  top: 435px;
+  text-align: left;
+  border: 2px solid rgb(70, 4, 4);
+  padding: 10px;
+}
+
+.commentbox{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.comment-container{
+  height: 75px;
+  width: 600px;
+  background-color: white;
+  margin-top: 10px 0;
+  border-radius: 5px;
+  border: 1px solid gray;
+  word-break: break-all;
+}
+
+
+.ranking {
+  position: fixed;
+  left: 550px;
+  top: 305px;
+  text-align: left;
+  border: 2px solid rgb(70, 4, 4);
+  padding: 10px;
+}
+
+label {
+  padding: 5px;
+}
+
+.star-icon {
+  position: fixed;
+  left: 645px;
+  top: 130px;
+  width: auto; /* Genişlik değeri */
+  height: 30px; /* Yükseklik değeri */
+}
+
+.average-score {
+  position: fixed;
+  left: 690px;
+  top: 120px;
+  z-index: 9999;
+}
+
+
+.add-new-film{
+  background-color: #0c8a08;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-new-film:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.delete{
+  background-color: #860d0d;
+  color: #ffffff;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.delete:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.update{
+  background-color: #026c1d;
+  color: #ffffff;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.update:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.see-details {
+  background-color: #4e4e4e;
+  color: white;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.see-details:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.delete-update-home {
+  margin-top: 10px;
+}
+.user-list-panel {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.single {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.admin-control-buttons {
+  position: fixed;
+  top: 400px;
+  left: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.update-film-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* İki sütunlu düzen */
+  gap: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.update-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box {
+  margin-left: 30px;
+}
+
+.upload-button {
+  height: 20px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.film-poster-update {
+  display: flex;
+  align-items: center;
+}
+
+.poster-link {
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+

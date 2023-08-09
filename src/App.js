@@ -12,17 +12,18 @@ import Navbar from "./components/Navbar"
 import Home from "./pages/Home"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
-import Single from "./pages/Single"
+import FilmDetails from "./pages/FilmDetails"
 import Edit from "./pages/Edit"
 import "./style.scss"
+import "./App.css"
+import Users from "./pages/Users"
 
 const Layout=()=>{
   return(
-      <>
+      <div className="main">
           <Navbar/>
           <Outlet/>
-          <Footer/>
-      </>
+      </div>
   );
 };
 
@@ -37,12 +38,14 @@ const router=createBrowserRouter([
       },
       {
         path:"/post/:d",
-        element: <Single/>
+        element: <FilmDetails/>
       },
       {
         path:"/edit",
         element: <Edit/>
       },
+      {path:"/users",
+    element: <Users/>}
     ]
   },
   {
@@ -58,8 +61,12 @@ const router=createBrowserRouter([
     element: <Edit/>,
   },
   {
-    path:"/single",
-    element: <Single/>,
+    path:"/filmDetails",
+    element: <FilmDetails/>,
+  },
+  {
+    path:"/users",
+    element: <Users/>,
   },
 ]);
 
