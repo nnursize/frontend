@@ -1,10 +1,28 @@
-import React from "react"
 import Edit from "../img/edit.png"
 import Delete from "../img/delete.png"
-import { Link } from "react-router-dom"
-import { useState } from "react"
+import React, { useEffect, useState } from "react"
+import axios from "axios"
+import { Link, useLocation } from "react-router-dom"
 
 const Single=()=>{
+
+    const [movie, setMovie]= useState({});
+    const location=useLocation()
+    const movie_id=location.pathname.split("/")[2]
+
+    useEffect(()=>{
+        const fetchAll = async() =>{
+            try {
+                const res= await axios.get(`/movies/${movie_id}`)
+                console.log(res.data.genre)
+                setMovie(res.data);
+            } catch (err) {
+                console.log(err)
+            }
+        };
+        fetchAll()
+    },[movie_id]);
+
     const[comment,setComment]=useState("");
     const[comments,setComments]=useState([]);
 
@@ -18,15 +36,15 @@ const Single=()=>{
     return(
         <div className="single">
             <div className="content">
-                <img src="https://images.pexels.com/photos/7008010/pexels-photo-7008010.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt=""/>
+                <img src={movie?.img}/>
             <div className="edit">
                 <Link to={`/edit`}>
                 <img src={Edit} alt=""/>
                 </Link>
                 <img src={Delete} alt=""/>
             </div>
-            <h1>her</h1>
-            <p>her escaping fromfjıee</p>
+            <h1>{movie.name}</h1>
+            <p>{movie.summary}</p>
             </div>
             <div className="yorum">
                 <div className="commentbox">
