@@ -220,7 +220,7 @@ label {
 }
 
 .see-details {
-  background-color: #4e4e4e;
+  background-color: #3697b2;
   color: white;
   border: none;
   padding: 15px 15px;
@@ -246,24 +246,22 @@ label {
 
 .single {
   color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
 }
 
 .admin-control-buttons {
   position: fixed;
-  top: 400px;
-  left: 100px;
+  top: 77px;
+  left: 335px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 5px;
 }
 
 .update-film-data {
   display: grid;
   grid-template-columns: 1fr 1fr; /* İki sütunlu düzen */
-  gap: 20px;
+  gap: 100px;
   color: white;
   display: flex;
   justify-content: center;
@@ -271,14 +269,52 @@ label {
   height: 100vh;
 }
 
-
-.update-panel {
+.add-film-data {
+  color: white;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   flex-direction: column;
 }
 
+
+.update-panel, .current-film-details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5px;
+}
+
+.input-update-panel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.labels-update-panel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
 .input-box {
-  margin-left: 30px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.label-edit {
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.h3-current {
+  position: fixed;
+  left: 840px;
+  top: 100px;
+}
+
+.h3-add-film {
+
 }
 
 .upload-button {
@@ -299,6 +335,104 @@ label {
   text-decoration: underline;
   cursor: pointer;
 }
+
+/* FILM LIST */
+
+.movie {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.movies {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.film-poster-list{
+  margin-top: 100px;
+  width: 180px;
+  height: auto;
+  margin-left: 100px;
+  margin-bottom: 50px;
+}
+
+.content-list {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  margin-top: 70px;
+}
+
+.movies {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-film-list  {
+  position: fixed;
+  left: 220px;
+  top: 77px;
+  
+  background-color: #4e4e4e;
+  color: #ffffff;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-film-list:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.film-list-h1 {
+  position: fixed;
+  left: 50px;
+  top: 30px;
+  background-image: linear-gradient(79deg, #dacfc7, #da945c 48%, #6f6f6f);
+  width: 90.5%;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-radius: 10px; 
+}
+
+.film-details-h1 {
+  position: fixed;
+  left: 50px;
+  top: 30px;
+  background-image: linear-gradient(79deg, #dacfc7, #da945c 48%, #6f6f6f);
+  width: 90.5%;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-radius: 10px;
+  color: #060000;
+}
+
+.movie-title-list {
+  overflow-wrap: break-word;
+  width: 600px;
+}
+
+.movie-description-list {
+  overflow-wrap: break-word;
+  width: 700px;
+  max-height: 100px;
+  overflow-y: auto;
+}
+
+
+
+
 
 
 

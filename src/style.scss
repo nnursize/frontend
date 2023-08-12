@@ -110,8 +110,7 @@ $lightGreen: #b9e7e7;
 
             }
         }
-                 //HOME
-
+/*
         .home {
 
             .movies {
@@ -154,6 +153,7 @@ $lightGreen: #b9e7e7;
             }
             }
         }
+        */
         //FOOTER
 
         footer {
@@ -171,16 +171,9 @@ $lightGreen: #b9e7e7;
         
         //SINGLE
         .single {
-            display: flex;
-            flex-direction: column;
-            gap: 75px;
       
             .content {
-              flex: 5;
-              display: flex;
-              flex-direction: column;
-              gap: 10px;
-              border: 1px solid gray;
+
               img {
                 width: 30%;
                 height: 300px;

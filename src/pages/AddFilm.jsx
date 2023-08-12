@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "react-quill/dist/quill.snow.css";
 import "../App.css"
 
-const Edit=()=>{
+const AddFilm=()=>{
 
     const [name, setName] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
@@ -53,29 +53,9 @@ const Edit=()=>{
       };
 
     return (
-        <div>
-            <h3 className="h3-current">Film Bilgileri </h3>
-        <div className="update-film-data">
-        <div className="update-panel">
-            <div className="labels-update-panel">
-                <b className="label-edit">Film Adı: </b>
-                <b className="label-edit">Film Afişi: </b>
-                <b className="label-edit">Çıkış Yılı: </b>
-                <b className="label-edit">Türü: </b>
-                <b className="label-edit">Süresi: </b>
-                <b className="label-edit">Oyuncular: </b>
-            </div>
-            <div className="input-update-panel">
-                <input type="text" className="input-box" placeholder="Film adı giriniz" onChange={setFilmName} />
-                <input type="file" className="input-box" accept=".jpg, .png" onChange={handleFileChange} />
-                <input type="text" className="input-box" placeholder="Yıl bilgisi giriniz" onChange={setFilmDate} />
-                <input type="text" className="input-box" placeholder="Tür bilgisi giriniz" onChange={setGenre} />
-                <input type="text" className="input-box" placeholder="Süre bilgisi giriniz" onChange={setFilmDuration} />
-                <input type="text" className="input-box" placeholder="Film oyuncularını giriniz" onChange={setFilmCast} />
-            </div>
-        </div>
-
-            <div className="current-film-details">
+        <div className="add-film-data">
+            <h1 className="film-details-h1">Film Ekle</h1>
+            <div className="update-panel">
                 <div className="labels-update-panel">
                     <b className="label-edit">Film Adı: </b>
                     <b className="label-edit">Film Afişi: </b>
@@ -85,17 +65,17 @@ const Edit=()=>{
                     <b className="label-edit">Oyuncular: </b>
                 </div>
                 <div className="input-update-panel">
-                    <input className="input-box" type="text" value={name} readOnly />
-                    <span className="poster-link input-box" onClick={handleLinkClick}>Afiş Linki</span>
-                    <input className="input-box" type="text" value={date} readOnly />
-                    <input className="input-box" type="text" value={genre} readOnly />
-                    <input className="input-box" type="text" value={duration} readOnly />
-                    <input className="input-box" type="text" value={cast} readOnly />
+                    <input type="text" className="input-box" placeholder="Film adı giriniz" onChange={setFilmName} />
+                    <input type="file" className="input-box" accept=".jpg, .png" onChange={handleFileChange} />
+                    <input type="text" className="input-box" placeholder="Yıl bilgisi giriniz" onChange={setFilmDate} />
+                    <input type="text" className="input-box" placeholder="Tür bilgisi giriniz" onChange={setGenre} />
+                    <input type="text" className="input-box" placeholder="Süre bilgisi giriniz" onChange={setFilmDuration} />
+                    <input type="text" className="input-box" placeholder="Film oyuncularını giriniz" onChange={setFilmCast} />
                 </div>
             </div>
-        </div>  
+            <button>Ekle</button>
         </div>      
     )
 }
 
-export default Edit
+export default AddFilm

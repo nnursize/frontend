@@ -9,14 +9,15 @@ import { Outlet } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 
-import Home from "./pages/Home"
+import FilmList from "./pages/FilmList"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
 import FilmDetails from "./pages/FilmDetails"
 import Edit from "./pages/Edit"
+import Users from "./pages/Users"
+import AddFilm from "./pages/AddFilm"
 import "./style.scss"
 import "./App.css"
-import Users from "./pages/Users"
 
 const Layout=()=>{
   return(
@@ -34,7 +35,7 @@ const router=createBrowserRouter([
     children:[
       {
         path:"/",
-        element: <Home/>
+        element: <FilmList/>
       },
       {
         path:"/post/:d",
@@ -43,6 +44,10 @@ const router=createBrowserRouter([
       {
         path:"/edit",
         element: <Edit/>
+      },
+      {
+        path:"/add-film",
+        element: <AddFilm/>
       },
       {path:"/users",
     element: <Users/>}
@@ -59,6 +64,10 @@ const router=createBrowserRouter([
   {
     path:"/edit",
     element: <Edit/>,
+  },
+  {
+    path:"/add-film",
+    element: <AddFilm/>
   },
   {
     path:"/filmDetails",
