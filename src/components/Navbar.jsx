@@ -1,8 +1,14 @@
-import React from "react"
 import Logo from "../img/logo.png"
 import { Link } from "react-router-dom"
+import React, { useContext } from "react"
+import { AuthContext } from "../context/authContext";
 
 const Navbar=()=>{
+
+    const {currentUser,logout}=useContext(AuthContext);  //user bilgisi
+    const str1=JSON.stringify(currentUser?.role);
+    const str2=JSON.stringify("admin");         //role adminse edit ve delete yapabilsin
+
     return(
         <div className="navbar">
             <div className="container">
@@ -31,13 +37,21 @@ const Navbar=()=>{
                     <Link className="link" to="/?genre=food">
                         <h6>FOOD</h6>
                     </Link>
-
                     <form>
                         <input type="search" placeholder="Search..."/>
                         <Link className="link" to= "/register"/>
                     </form>
-                    <span>John</span>
-                    <span>Logout</span>
+                    
+                    {str1 === str2 && (
+                    <Link className="link" to="/edit">
+                        <h6>ADD MOVIE</h6>
+                    </Link>
+                    )}
+                    <span>{currentUser?.username}</span>
+                    {currentUser?( 
+                        <span onClick={logout}>Logout</span>) :( 
+                        <Link className="link" to="/login">Login</Link>)
+                    }
                 </div>
             </div>
         </div>
