@@ -12,7 +12,6 @@ const Home=()=>{
         const fetchAll = async() =>{
             try {
                 const res= await axios.get(`/movies${genre}`)
-                console.log(res.data.genre)
                 setMovies(res.data);
             } catch (err) {
                 console.log(err)
@@ -28,13 +27,13 @@ const Home=()=>{
 
                     <div className="movie" key={movie.id}>
                         <div className="img">
-                            <img src={movie.img} alt=""/>
+                            <img src={`../upload/${movie?.img}`} alt=""/>
                         </div>
                         <div className="content">
                             <Link className="link" to={`/movie/${movie.id}`}>
-                                <h1>{movie.name}</h1>
+                                <h1>{movie?.name}</h1>
                             </Link>
-                            <p>{movie.summary}</p>
+                            <p>{movie?.summary}</p>
                             <Link className="link" to={`/movie/${movie.id}`}>
                             <button>Examine Movie</button>
                             </Link>
