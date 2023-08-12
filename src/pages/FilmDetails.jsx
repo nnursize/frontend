@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import poster from '../img/Oppenheimer_(film)_afiş.jpg';
 import star_icon from '../img/star-icon.png';
 import { Link } from "react-router-dom"
+import "../App.css"
 
 
 export const FilmDetails = () => {
@@ -12,35 +13,28 @@ export const FilmDetails = () => {
         setSelectedScore(event.target.value);
     };
 
-    const[comment,setComment]=useState("");
-    const[comments,setComments]=useState([]);
+    const [comments, setComments] = useState([]);
+    const [comment, setComment] = useState('');
 
-    const onClickHandler= (e)=>{
-        setComments((comments)=> [...comments,comment]);
-    }
+    const addComment = (comment) => {
+        setComments([...comments, comment]);
+    };
 
-    const onChangeHandler= (e)=>{
-        setComment(e.target.value);
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (comment.trim() !== '') {
+            addComment(comment);
+            setComment('');
+        } else {
+            alert("Lütfen bir yorum giriniz.");
+        }
+    };
     
-
-    // Film adi +
-    // Film afisi +
-    // Cikis yili +
-    // Turu +
-    // Suresi +
-
-    // Oyuncular +
-    // Yorum yap +
-    // Yorumlar +
-    // Puanlama +
-    // average score +
-
     return (
-        <div className="single">
+        <div className="film-details-panel">
             <h1 className="film-details-h1">Film Detayları</h1>
 
-            <div className="film-details-panel">
                 <h1 className="film-name">Oppenheimer</h1>
                 <img className="film-poster" src={poster} alt={"poster"}/>
 
@@ -55,16 +49,19 @@ export const FilmDetails = () => {
                 <div className="comments">
                     <div className="commentbox">
                         <h3>Yorum Yap</h3>
-                        <input type="text" placeholder="Yorum yap..." value={comment} onChange={onChangeHandler} />
-                        <button onClick={onClickHandler} className="comment-button">Gönder</button>
+                        <form onSubmit={handleSubmit}>
+                            <textarea value={comment} onChange={(e) => setComment(e.target.value)} className="type-comment" placeholder="Film hakkındaki görüşlerinizi yazınız." rows="4" cols="50">
+                            </textarea>
+                            <br/>
+                            <button type="submit">Gonder</button>
+                        </form>
                     </div>
-                    {comments.map((text)=>(
-                        <div className="comment-container">{text}</div>
-                    ))}   
+                    <ul>
+                    {comments.map((comment, index) => (
+                        <li key={index}>{comment}</li>
+                    ))}
+                    </ul>
                 </div>
-
-
-                {/* Yorumlar eklendikce sayfa asagi kaymiyor, yorum icerigi gorunmuyor, yorum kutularinin boyutu duzeltilecek. */}
 
                 <div className="ranking">
                 <div className="ranking-row1">       
@@ -104,7 +101,7 @@ export const FilmDetails = () => {
                 </div>
                 {selectedScore && <p>Verdiğiniz Puan: {selectedScore}</p>}
                 </div>
-
+                
                 <img className="star-icon" src={star_icon} alt={"star_icon"}/>
                 <p className="average-score">6.7/10</p>
 
@@ -113,9 +110,7 @@ export const FilmDetails = () => {
                 <Link to="/edit">
                     <button className="update">Film Bilgilerini Güncelle</button>
                 </Link>
-                </div>
-            </div>
-            
+                </div>        
 
         </div>
     )

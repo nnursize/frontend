@@ -61,20 +61,12 @@
   height: auto;
 }
 
-.film-name {
-  color: white;
-  text-align: left;
-  position: fixed;
-  top: 145px;
-  left: 100px;
-}
-
 .film-poster {
   width: auto;
   height: 250px;
   position: fixed;
   left: 100px;
-  top: 230px;
+  top: 220px;
 }
 
 
@@ -82,16 +74,8 @@
   color: white;
   text-align: left;
   position: fixed;
-  top: 50px;
+  top: 120px;
   left: 100px;
-}
-
-.film-poster {
-  width: auto; /* Genişlik değeri */
-  height: 250px; /* Yükseklik değeri */
-  position: fixed;
-  left: 100px;
-  top: 130px;
 }
 
 .release-date, .genre, .film-time, .film-cast {
@@ -104,7 +88,7 @@
   max-width: 300px ;
   position: fixed;
   left: 290px;
-  top: 180px;
+  top: 260px;
 }
 
 
@@ -112,22 +96,14 @@
   display: flex;
   position: fixed;
   left: 290px;
-  top: 115px;
+  top: 205px;
+  overflow-y: auto;
 }
 
 .comments {
   position: fixed;
   left: 290px;
-  top: 305px;
-  text-align: left;
-  border: 2px solid rgb(70, 4, 4);
-  padding: 10px;
-}
-
-.comment-boxes {
-  position: fixed;
-  left: 290px;
-  top: 435px;
+  top: 375px;
   text-align: left;
   border: 2px solid rgb(70, 4, 4);
   padding: 10px;
@@ -139,21 +115,17 @@
   align-items: flex-start;
 }
 
-.comment-container{
-  height: 75px;
-  width: 600px;
-  background-color: white;
-  margin-top: 10px 0;
-  border-radius: 5px;
-  border: 1px solid gray;
-  word-break: break-all;
+.type-comment {
+  width: 300px;
+  height: 100px;
+  padding: 8px;
+  resize: none;
 }
-
 
 .ranking {
   position: fixed;
-  left: 550px;
-  top: 305px;
+  left: 650px;
+  top: 375px;
   text-align: left;
   border: 2px solid rgb(70, 4, 4);
   padding: 10px;
@@ -165,16 +137,16 @@ label {
 
 .star-icon {
   position: fixed;
-  left: 645px;
-  top: 130px;
+  left: 725px;
+  top: 290px;
   width: auto; /* Genişlik değeri */
   height: 30px; /* Yükseklik değeri */
 }
 
 .average-score {
   position: fixed;
-  left: 690px;
-  top: 120px;
+  left: 765px;
+  top: 280px;
   z-index: 9999;
 }
 
@@ -244,7 +216,7 @@ label {
   height: 100vh;
 }
 
-.single {
+.film-details-panel {
   color: white;
   height: 100vh;
 }
@@ -373,7 +345,7 @@ label {
   gap: 10px;
 }
 
-.add-film-list  {
+.add-film-list {
   position: fixed;
   left: 220px;
   top: 77px;
