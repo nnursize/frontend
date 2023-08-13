@@ -22,12 +22,17 @@ const Register=()=>{
     const handleRegister=async e=>{ //api req
         e.preventDefault();      //no refresh
 
-        try {
-            await axios.post("/auth/register", inputs); 
-            navigate("/login");
-        } catch (err) {
-            setError(err.response.data);
+        if(((inputs.username!=="") && (inputs.username!==null))&&((inputs.email!=="") && (inputs.email!==null))&&(inputs.age!==null)&&((inputs.password!=="") && (inputs.password!==null))&&((inputs.role!=="") && (inputs.role!==null)) ){
+            try {
+                await axios.post("/auth/register", inputs); 
+                navigate("/login");
+            } catch (err) {
+                setError(err.response.data);
+            }
         }
+        else{
+            setError("Please complete the form.");
+    }
         
     };
 
@@ -39,7 +44,11 @@ const Register=()=>{
                 <input required type="email" placeholder='Email' name="email" onChange={handleChange}/>
                 <input required type="number" placeholder='age' name="age" onChange={handleChange}/>
                 <input required type="password" placeholder='Password' name="password" onChange={handleChange}/>
-                <input required type="text" placeholder='Role' name="role" onChange={handleChange}/>
+                <label>
+                    Role: 
+                    <input type="radio" name="role" placeholder='Role' value="user" onChange={handleChange}/>
+                    user
+                </label>
                 <button onClick={handleRegister}>Register</button>
                 {err && <p>{err}</p>}
                 <span>

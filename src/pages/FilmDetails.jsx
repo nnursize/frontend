@@ -1,11 +1,34 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react"
 import poster from '../img/Oppenheimer_(film)_afiş.jpg';
 import star_icon from '../img/star-icon.png';
-import { Link } from "react-router-dom"
 import "../App.css"
+import axios from "axios"
+import { Link, useLocation, useNavigate } from "react-router-dom"
+import { AuthContext } from "../context/authContext"
+import Edit from "../img/edit.png"
+import Delete from "../img/delete.png"
 
 
 export const FilmDetails = () => {
+
+    const [movie, setMovie]= useState({});
+    const location=useLocation();
+    const navigate=useNavigate();
+    const movie_id=location.pathname.split("/")[2]
+    const {currentUser}=useContext(AuthContext);
+
+    useEffect(()=>{
+        const fetchAll = async() =>{
+            try {
+                const res= await axios.get(`/movies/${movie_id}`)
+                setMovie(res.data);
+            } catch (err) {
+                console.log(err)
+            }
+        };
+        fetchAll()
+    },[movie_id]);
+
 
     const [selectedScore, setSelectedScore] = useState('');
 
@@ -30,18 +53,38 @@ export const FilmDetails = () => {
             alert("Lütfen bir yorum giriniz.");
         }
     };
+
+    const handleDelete = async() =>{
+        try {
+            await axios.delete(`/movies/${movie_id}`)
+            navigate("/");
+        } catch (err) {
+            console.log(err)
+        }
+    };
+    const str1=JSON.stringify(currentUser?.role);
+    const str2=JSON.stringify("admin");         //role adminse edit ve delete yapabilsin
     
     return (
         <div className="film-details-panel">
             <h1 className="film-details-h1">Film Detayları</h1>
 
                 <h1 className="film-name">Oppenheimer</h1>
-                <img className="film-poster" src={poster} alt={"poster"}/>
+                <img className="film-poster" src={`../upload/${movie?.img}`} alt=""/>
+
+                {str1 === str2 && (
+                <div className="edit">
+                    <Link to={`/edit?edit=2`} state={movie}>
+                    <img src={Edit} alt=""/>
+                    </Link>
+                    <img onClick={handleDelete} src={Delete} alt=""/>
+                </div>
+            )}
 
                 <div className="film-details"> 
-                    <p className="release-date">2023</p>
-                    <p className="genre">Dram/Gerilim</p>
-                    <p className="film-time">180 dk.</p>
+                    <p className="release-date">{movie?.year}</p>
+                    <p className="genre">{movie?.genre}</p>
+                    <p className="film-time">{movie?.duration}</p>
                 </div>
 
                 <p className="film-cast">Cillian Murphy, Emily Blunt, Robert Downey Jr., Alden Ehrenreich, Scott Grimes, Jason Clarke</p>
