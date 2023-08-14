@@ -3,6 +3,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import "../App.css"
 
 const Edit=()=>{
 
@@ -13,6 +14,7 @@ const Edit=()=>{
    // const [summary,setSummary]=useState(state?.summary);
     const [image,setImg]=useState(state?.img||null);
     const [genre,setGenre]=useState(state?.genre||"");
+    const [cast,setCast]=useState(state?.cast||"");
     const [duration,setDuration]=useState(state?.duration||null);
     const [year,setYear]=useState(state?.year||null);
 
@@ -61,64 +63,51 @@ const Edit=()=>{
 
     //console.log(value);
     return(
-        <div className="Edit">
-            <div className="content">
-                <input type="text" placeholder="Name" value={name} onChange={e=>setName(e.target.value)}/>
-                <input type="number" placeholder="Duration" value={duration} onChange={e=>setDuration(e.target.value)}/>
-                <input type="number" placeholder="Year" value={year} onChange={e=>setYear(e.target.value)}/>
-                <div className="editorContainer">
-                <ReactQuill
-            className="editor"
-            theme="snow"
-            value={value}
-            onChange={setValue}
-          />
-                </div>
+        <div>
+            <h3 className="h3-current">Film Bilgileri </h3>
+        <div className="update-film-data">
+        <div className="update-panel">
+            <div className="labels-update-panel">
+                <b className="label-edit">Film Adı: </b>
+                <b className="label-edit">Film Afişi: </b>
+                <b className="label-edit">Çıkış Yılı: </b>
+                <b className="label-edit">Türü: </b>
+                <b className="label-edit">Süresi: </b>
+                <b className="label-edit">Oyuncular: </b>
             </div>
-            <div className="menu">
-                <div className="item">
-                    <h1>Publish </h1>
-                        <span>
-                            <b>Status</b> <b>Span</b>
-                        </span>
-                        <span>
-                            <b>Visibility</b>Public
-                        </span>            
-                        <input style={{display:"none"}} type="file" name="" id="file" onChange={e=>setImg(e.target.files[0])}/> 
-                        <label className="file" htmlFor="file">Upload image</label> 
-                        <div className="buttons">
-                            <button onClick={handleClick}>Update</button>
-                        </div>     
-                </div>
-                <div className="item">
-                    <h1>Genre</h1>
-                    <div className="genre">
-                     <input type="radio" checked={genre==="art"} name="genre" value="art" id="art" onChange={handleChange}/>
-                     <label htmlFor="art">Art</label>
-                    </div>
-                    <div className="genre">
-                     <input type="radio" checked={genre==="science"} name="genre" value="science" id="science" onChange={handleChange}/>
-                     <label htmlFor="science">Science</label>
-                    </div>
-                    <div className="genre">
-                     <input type="radio" checked={genre==="tech"} name="genre" value="tech" id="tech" onChange={handleChange}/>
-                     <label htmlFor="tech">Tech</label>
-                    </div>
-                    <div className="genre">
-                     <input type="radio" checked={genre==="cinema"} name="genre" value="cinema" id="cinema" onChange={handleChange}/>
-                     <label htmlFor="cinema">Cinema</label>
-                    </div>
-                    <div className="genre">
-                     <input type="radio" checked={genre==="design"} name="genre" value="design" id="design" onChange={handleChange}/>
-                     <label htmlFor="design">Design</label>
-                    </div>
-                    <div className="genre">
-                     <input type="radio" checked={genre==="food"} name="genre" value="food" id="food" onChange={handleChange}/>
-                     <label htmlFor="food">Food</label>
-                    </div>
-                </div>
+            <div className="input-update-panel">
+                <input type="text" className="input-box" placeholder="Film adı giriniz" value={name} onChange={e=>setName(e.target.value)} />
+                <input type="file" className="input-box" accept=".jpg, .png" onChange={e=>setImg(e.target.files[0])} />
+                <input type="text" className="input-box" placeholder="Yıl bilgisi giriniz" value={year} onChange={e=>setYear(e.target.value)} />
+                <input type="text" className="input-box" placeholder="Tür bilgisi giriniz" value={genre} onChange={e=>setGenre(e.target.value)} />
+                <input type="text" className="input-box" placeholder="Süre bilgisi giriniz" value={duration} onChange={e=>setDuration(e.target.value)} />
+                <input type="text" className="input-box" placeholder="Film oyuncularını giriniz" value={cast} onChange={e=>setCast(e.target.value)} />
+                <div className="buttons">
+                    <button onClick={handleClick}>Update</button>
+                </div> 
             </div>
         </div>
+
+            <div className="current-film-details">
+                <div className="labels-update-panel">
+                    <b className="label-edit">Film Adı: </b>
+                    <b className="label-edit">Film Afişi: </b>
+                    <b className="label-edit">Çıkış Yılı: </b>
+                    <b className="label-edit">Türü: </b>
+                    <b className="label-edit">Süresi: </b>
+                    <b className="label-edit">Oyuncular: </b>
+                </div>
+                <div className="input-update-panel">
+                    <input className="input-box" type="text" value={name} readOnly />
+                    <span className="poster-link input-box" onClick={image}>Afiş</span>
+                    <input className="input-box" type="text" value={year} readOnly />
+                    <input className="input-box" type="text" value={genre} readOnly />
+                    <input className="input-box" type="text" value={duration} readOnly />
+                    <input className="input-box" type="text" value={cast} readOnly />
+                </div>
+            </div>
+        </div>  
+        </div>  
     )
 }
 

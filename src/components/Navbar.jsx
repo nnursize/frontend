@@ -2,6 +2,8 @@ import Logo from "../img/logo.png"
 import { Link } from "react-router-dom"
 import React, { useContext } from "react"
 import { AuthContext } from "../context/authContext";
+import "../App.css"
+import Users from "../pages/Users"
 
 const Navbar=()=>{
 
@@ -10,7 +12,7 @@ const Navbar=()=>{
     const str2=JSON.stringify("admin");         //role adminse edit ve delete yapabilsin
 
     return(
-        <div className="navbar">
+        <nav className="navbar">
             <div className="container">
                 <div className="logo">
                     <Link to="/">
@@ -19,34 +21,28 @@ const Navbar=()=>{
                 </div>
                 <div className="links">
 
-                    <Link className="link" to="/?genre=art">
-                        <h6>ART</h6>
+
+
+                    <Link className="link" to='/users'>
+                        <h6 className="users-h6">Kullanıcılar&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     </Link>
-                    <Link className="link" to="/?genre=science">
-                        <h6>SCIENCE</h6>
+
+
+
+                    <Link className="link" to="/?cat=art">
+                        <h6>Film Listesi&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     </Link>
-                    <Link className="link" to="/?genre=technology">
-                        <h6>TECH</h6>
+
+
+
+                    <h6>Hesap Bilgileri&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
+
+
+
+                    <Link className="link" to="/login">
+                        <h6>Çıkış Yap</h6>
                     </Link>
-                    <Link className="link" to="/?genre=cinema">
-                        <h6>CINEMA</h6>
-                    </Link>
-                    <Link className="link" to="/?genre=design">
-                        <h6>DESIGN</h6>
-                    </Link>
-                    <Link className="link" to="/?genre=food">
-                        <h6>FOOD</h6>
-                    </Link>
-                    <form>
-                        <input type="search" placeholder="Search..."/>
-                        <Link className="link" to= "/register"/>
-                    </form>
                     
-                    {str1 === str2 && (
-                    <Link className="link" to="/edit">
-                        <h6>ADD MOVIE</h6>
-                    </Link>
-                    )}
                     <span>{currentUser?.username}</span>
                     {currentUser?( 
                         <span onClick={logout}>Logout</span>) :( 
@@ -54,7 +50,7 @@ const Navbar=()=>{
                     }
                 </div>
             </div>
-        </div>
+        </nav>
     )
 }
 

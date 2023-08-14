@@ -9,20 +9,22 @@ import { Outlet } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 
-import Home from "./pages/Home"
+import FilmList from "./pages/FilmList"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
-import Single from "./pages/Single"
+import FilmDetails from "./pages/FilmDetails"
 import Edit from "./pages/Edit"
+import Users from "./pages/Users"
+import AddFilm from "./pages/AddFilm"
 import "./style.scss"
+import "./App.css"
 
 const Layout=()=>{
   return(
-      <>
+      <div className="main">
           <Navbar/>
           <Outlet/>
-          <Footer/>
-      </>
+      </div>
   );
 };
 
@@ -33,16 +35,24 @@ const router=createBrowserRouter([
     children:[
       {
         path:"/",
-        element: <Home/>
+        element: <FilmList/>
       },
       {
         path:"/movie/:d",
-        element: <Single/>
+        element: <FilmDetails/>
       },
       {
         path:"/edit",
         element: <Edit/>
       },
+      {
+        path:"/add-film",
+        element: <AddFilm/>
+      },
+      {
+        path:"/users",
+        element: <Users/>
+      }
     ]
   },
   {
@@ -58,9 +68,17 @@ const router=createBrowserRouter([
     element: <Edit/>,
   },
   {
-    path:"/single",
-    element: <Single/>,
+    path:"/add-film",
+    element: <AddFilm/>,
   },
+  {
+    path:"/filmDetails",
+    element: <FilmDetails/>,
+  },
+  {
+    path:"/users",
+    element: <Users/>,
+  }
 ]);
 
 function App() {

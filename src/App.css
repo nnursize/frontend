@@ -1,16 +1,11 @@
 .App {
   text-align: center;
+  overflow: auto;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -28,11 +23,381 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar {
+  background-color: #9c521a;
+  color: white;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  height: 60px;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.logo {
+  margin-left: 45px;
+  height: 55px;
+  width: auto;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 9999;
+}
+
+.links {
+  margin-right: 30px;
+  position: fixed;
+  left: 700px;
+  top: -15px;
+}
+
+.users-h6 {
+  color: black;
+}
+
+.main {
+  background-image: linear-gradient(79deg, #373333, #5c5a58 48%, #845309);
+  height: auto;
+}
+
+.film-poster {
+  width: auto;
+  height: 250px;
+  position: fixed;
+  left: 100px;
+  top: 220px;
+}
+
+
+.film-name {
+  color: white;
+  text-align: left;
+  position: fixed;
+  top: 120px;
+  left: 100px;
+}
+
+.release-date, .genre, .film-time, .film-cast {
+  text-align: left;
+  border: 2px solid rgb(70, 4, 4);
+  padding: 10px;
+}
+
+.film-cast {
+  max-width: 300px ;
+  position: fixed;
+  left: 290px;
+  top: 260px;
+}
+
+
+.film-details {
+  display: flex;
+  position: fixed;
+  left: 290px;
+  top: 205px;
+  overflow-y: auto;
+}
+
+.comments {
+  position: fixed;
+  left: 290px;
+  top: 375px;
+  text-align: left;
+  border: 2px solid rgb(70, 4, 4);
+  padding: 10px;
+}
+
+.commentbox{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.type-comment {
+  width: 300px;
+  height: 100px;
+  padding: 8px;
+  resize: none;
+}
+
+.ranking {
+  position: fixed;
+  left: 650px;
+  top: 375px;
+  text-align: left;
+  border: 2px solid rgb(70, 4, 4);
+  padding: 10px;
+}
+
+label {
+  padding: 5px;
+}
+
+.star-icon {
+  position: fixed;
+  left: 725px;
+  top: 290px;
+  width: auto; /* Genişlik değeri */
+  height: 30px; /* Yükseklik değeri */
+}
+
+.average-score {
+  position: fixed;
+  left: 765px;
+  top: 280px;
+  z-index: 9999;
+}
+
+
+.add-new-film{
+  background-color: #0c8a08;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-new-film:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.delete{
+  background-color: #860d0d;
+  color: #ffffff;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.delete:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.update{
+  background-color: #026c1d;
+  color: #ffffff;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.update:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.see-details {
+  background-color: #3697b2;
+  color: white;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.see-details:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.delete-update-home {
+  margin-top: 10px;
+}
+.user-list-panel {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.film-details-panel {
+  color: white;
+  height: 100vh;
+}
+
+.admin-control-buttons {
+  position: fixed;
+  top: 77px;
+  left: 335px;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.update-film-data {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* İki sütunlu düzen */
+  gap: 100px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.add-film-data {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+
+.update-panel, .current-film-details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5px;
+}
+
+.input-update-panel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.labels-update-panel {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.input-box {
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.label-edit {
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.h3-current {
+  position: fixed;
+  left: 840px;
+  top: 100px;
+}
+
+.h3-add-film {
+
+}
+
+.upload-button {
+  height: 20px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.film-poster-update {
+  display: flex;
+  align-items: center;
+}
+
+.poster-link {
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* FILM LIST */
+
+.movie {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+}
+
+.movies {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.film-poster-list{
+  margin-top: 100px;
+  width: 180px;
+  height: auto;
+  margin-left: 100px;
+  margin-bottom: 50px;
+}
+
+.content-list {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0px;
+  margin-top: 70px;
+}
+
+.movies {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-film-list {
+  position: fixed;
+  left: 220px;
+  top: 77px;
+  
+  background-color: #4e4e4e;
+  color: #ffffff;
+  border: none;
+  padding: 7px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.add-film-list:hover{
+  background-color: #ffffff;
+  color: #060000;
+}
+
+.film-list-h1 {
+  position: fixed;
+  left: 50px;
+  top: 30px;
+  background-image: linear-gradient(79deg, #dacfc7, #da945c 48%, #6f6f6f);
+  width: 90.5%;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-radius: 10px; 
+}
+
+.film-details-h1 {
+  position: fixed;
+  left: 50px;
+  top: 30px;
+  background-image: linear-gradient(79deg, #dacfc7, #da945c 48%, #6f6f6f);
+  width: 90.5%;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-left: 20px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  border-radius: 10px;
+  color: #060000;
+}
+
+.movie-title-list {
+  overflow-wrap: break-word;
+  width: 600px;
+}
+
+.movie-description-list {
+  overflow-wrap: break-word;
+  width: 700px;
+  max-height: 100px;
+  overflow-y: auto;
 }
