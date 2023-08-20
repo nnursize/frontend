@@ -3,7 +3,7 @@ import axios from "axios"
 
 import { Link, useLocation } from "react-router-dom"
 
-const Home=()=>{
+const Homepage=()=>{
     
     const [movies, setMovies]= useState([]);
     const genre=useLocation().search
@@ -45,4 +45,4 @@ const Home=()=>{
     )
 };
 
-export default Home
+export default Homepage

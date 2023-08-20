@@ -11,14 +11,9 @@ const Login=()=>{
         password:"",
     });
 
+    const {login}=useContext(AuthContext);
     const[err,setError]=useState(null);
     const navigate=useNavigate();
-
-    const {login}=useContext(AuthContext);
-
-    const handleChange=(e)=>{
-        setInputs(prev=>({...prev, [e.target.name]: e.target.value}));
-    };
 
     const handleLogin=async e=>{ //api req
         e.preventDefault();      //no refresh
@@ -30,6 +25,10 @@ const Login=()=>{
             setError(err.response.data);
         }
         
+    };
+
+    const handleChange=(e)=>{
+        setInputs(prev=>({...prev, [e.target.name]: e.target.value}));
     };
 
     return(

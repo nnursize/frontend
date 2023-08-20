@@ -6,7 +6,7 @@ import axios from "axios"
 import { Link, useLocation, useNavigate } from "react-router-dom"
 import { AuthContext } from "../context/authContext"
 
-const Single=()=>{
+const Film=()=>{
 
     const state=useLocation().state;
     const navigate=useNavigate();
@@ -14,6 +14,8 @@ const Single=()=>{
     const [score,setRate]=useState(state?.score||"");
     const [movie_score,setMovieRate]=useState(state?.movie_score||"");
     const[comments,setComments]=useState([]);
+    const[actors,setActor]=useState([]);
+    const[directors,setDirector]=useState([]);
     const [movie, setMovie]= useState({});
     const location=useLocation();
     const movie_id=location.pathname.split("/")[2]
@@ -28,6 +30,12 @@ const Single=()=>{
                 setComments(res2.data);
                 const res3= await axios.get(`/rate/${movie_id}`)
                 setMovieRate(res3.data.movies_rate);
+                const res4= await axios.get(`/actors/${movie_id}`)
+                console.log(res4.data)
+                setActor(res4.data);
+                const res5= await axios.get(`/directors/${movie_id}`)
+                console.log(res5.data)
+                setDirector(res5.data);
 
             } catch (err) {
                 console.log(err)
@@ -83,26 +91,39 @@ const Single=()=>{
     const str1=JSON.stringify(currentUser?.role);
     const str2=JSON.stringify("admin");         //role adminse edit ve delete yapabilsin
     return(
-        <div className="single">
+        <div className="film">
             <div className="content">
-            <div className="verticals1">
-                <img src={`../upload/${movie?.img}`} alt=""/>
-            {str1 === str2 && (
-                <div className="edit">
-                    <Link to={`/edit?edit=2`} state={movie}>
-                    <img src={Edit} alt=""/>
-                    </Link>
-                    <img onClick={handleDelete} src={Delete} alt=""/>
+                <div className="verticals1">
+                    <img src={`../upload/${movie?.img}`} alt=""/>
+                    {str1 === str2 && (
+                        <div className="edit">
+                            <Link to={`/edit?edit=2`} state={movie}>
+                            <img src={Edit} alt=""/>
+                            </Link>
+                            <img onClick={handleDelete} src={Delete} alt=""/>
+                        </div>
+                    )}
+                <h1>Duration: {movie?.duration}</h1>
+                <h2>Release Year: {movie?.year}</h2>
                 </div>
-            )}
-            <h1>Duration: {movie?.duration}</h1>
-            <h2>Release Year: {movie?.year}</h2>
+                <div className="verticals2">
+                    <h3>{movie?.name}</h3>
+                    <p>{movie?.summary}</p>
+                </div>
             </div>
-            <div className="verticals2">
-            <h3>{movie?.name}</h3>
-            <p>{movie?.summary}</p>
+
+            <div className="showInfo">
+                {directors.map((dir)=>(
+                    <div className="directorInfos"> Director: {dir.director_name}, {dir.nationality}</div>
+                ))}
             </div>
+
+            <div className="showInfo">
+                {actors.map((act)=>(
+                    <div className="actorInfos"> Actor: {act.actor_name}, {act.years_of_experience} </div>
+                ))}
             </div>
+
             <div className="degerlendirme">
             <div className="yorum">
                 <div className="commentbox">
@@ -161,4 +182,4 @@ const Single=()=>{
     )
 }
 
-export default Single
+export default Film

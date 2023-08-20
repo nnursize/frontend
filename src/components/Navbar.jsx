@@ -11,7 +11,7 @@ const Navbar=()=>{
 
     return(
         <div className="navbar">
-            <div className="container">
+            <div className="navigationBar">
                 <div className="logo">
                     <Link to="/">
                     <img src={Logo} alt=""/>
@@ -37,26 +37,22 @@ const Navbar=()=>{
                     <Link className="link" to="/?genre=adventure">
                         <h6>ADVENTURE</h6>
                     </Link>
-                    <form>
-                        <input type="search" placeholder="Search..."/>
-                        <Link className="link" to= "/register"/>
-                    </form>
                     
                     {str1 === str2 && (
                     <Link className="link" to="/edit">
-                        <h6>Add Movie</h6>
+                        <h7>Add Movie</h7>
                     </Link>
                     )}
 
                     {str1 === str2 && (
                     <Link className="link" to="/director">
-                        <h6>Add Director</h6>
+                        <h7>Add Director</h7>
                     </Link>
                     )}
 
                     {str1 === str2 && (
                     <Link className="link" to="/actor">
-                        <h6>Add Actor</h6>
+                        <h7>Add Actor</h7>
                     </Link>
                     )}
                     <span>{currentUser?.username}</span>
