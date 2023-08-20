@@ -1,4 +1,4 @@
-$lightGreen: #b9e7e7;
+$gray: #8a8e8e;
 
 .app {
   display: flex;
@@ -19,7 +19,7 @@ $lightGreen: #b9e7e7;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: $lightGreen;
+            background-color: $gray;
       
                 h1 {
                 font-size: 20px;
@@ -103,16 +103,18 @@ $lightGreen: #b9e7e7;
                     }
                    
                     span {
-                        font-weight: 400;
+                        color: #c81414;
+                        font-weight: 600;
                         cursor: pointer;
                     }
             }
 
             }
         }
-                 //HOME
+        //HOME
 
         .home {
+            background-color: $gray;
             .movies {
             margin-top: 50px;
             display: flex;
@@ -160,7 +162,7 @@ $lightGreen: #b9e7e7;
             
                             &:hover {
                             border: 1px solid white;
-                            background-color: $lightGreen;
+                            background-color: $gray;
                             color: black;
                             }
                         }
@@ -173,7 +175,7 @@ $lightGreen: #b9e7e7;
         footer {
             margin-top: 100px;
             padding: 20px;
-            background-color: $lightGreen;
+            background-color: $gray;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -190,97 +192,126 @@ $lightGreen: #b9e7e7;
             gap: 75px;
       
             .content {
-              flex: 5;
+              flex: 7;
               display: flex;
-              flex-direction: column;
+              flex-direction: row;
               gap: 10px;
               border: 1px solid gray;
-              img {
-                width: 30%;
-                height: 300px;
-                object-fit: cover;
-              }
-      
-      
-              .edit {
-                display: flex;
-                gap: 7px;
-      
+              .verticals1{
+                flex-direction: column;
                 img {
-                  width: 30px;
-                  height: 30px;
-                  cursor: pointer;
+                  width: 100%;
+                  height: 300px;
+                  object-fit: cover;
+                }
+        
+        
+                .edit {
+                  display: flex;
+                  gap: 7px;
+        
+                  img {
+                    width: 30px;
+                    height: 30px;
+                    cursor: pointer;
+                  }
+                }
+        
+                h1 {
+                  font-size: 15px;
+                  color: #333;
+                }
+                h2 {
+                  font-size: 15px;
+                  color: #333;
                 }
               }
-      
-              h1 {
-                font-size: 42px;
-                color: #333;
+              .verticals1{
+                flex-direction: column;
+                h3 {
+                  font-size: 30px;
+                  color: #c81414;
+                }
+        
+                p {
+                  font-size: 20px;
+                  text-align: justify;
+                  line-height: 30px;
+                }
               }
-              h2 {
-                font-size: 42px;
-                color: #333;
-              }
-              h3 {
-                font-size: 42px;
-                color: #333;
-              }
-      
-              p {
-                text-align: justify;
-                line-height: 30px;
-              }
+             
             }
-            .yorum {
+
+            .degerlendirme{
               flex: 3;
-              height: 100vh;
               display: flex;
-              flex-direction: column;
-              justify-content: flex-end;
-              align-items:flex-start;
-              border: 1px solid gray;
-            }
+              flex-direction: row;
+              .yorum {
+                flex: 3;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items:flex-start;
+                border: 1px solid gray;
+              }
 
-            .commentbox{
-              display: flex;
-              flex-direction: column;
-              align-items: flex-start;
-            }
+              .commentbox{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+              }
 
-            .commenttext{
-              margin: 12px 0;
-              font-size: 1.15rem;
-              font-weight: 600;
-              color: rgb(36, 131, 131);
-            }
+              .commenttext{
+                margin: 12px 0;
+                font-size: 1.15rem;
+                font-weight: 600;
+                color: rgb(36, 131, 131);
+              }
 
-            .inputbox{
-              height: 75px;
-              width: 600px;
-              background-color: white;
-            }
-            .comment-container{
-              height: 75px;
-              width: 600px;
-              background-color: white;
-              margin-top: 10px 0;
-              border-radius: 5px;
-              border: 1px solid gray;
-              word-break: break-all;
-            }
-            .commentbutton{
-              height: 40px;
-              width: 80px;
-              margin-bottom: 10px;
-              background-color: rgb(39, 149, 149);
-              color: white;
-              font-size: 1.05rem;
-              margin-top: 10px;
-              border-radius: 5px;
-              border-style: none;
-              cursor: pointer;
-            }
+              .inputbox{
+                height: 75px;
+                width: 600px;
+                background-color: white;
+              }
+              .comment-container{
+                height: 75px;
+                width: 600px;
+                background-color: white;
+                margin-top: 10px 0;
+                border-radius: 5px;
+                border: 1px solid gray;
+                word-break: break-all;
+              }
+              .commentbutton{
+                height: 40px;
+                width: 80px;
+                margin-bottom: 10px;
+                background-color: rgb(39, 149, 149);
+                color: white;
+                font-size: 1.05rem;
+                margin-top: 10px;
+                border-radius: 5px;
+                border-style: none;
+                cursor: pointer;
+              }
 
+              .ranking {
+                flex: 2;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items:center;
+                border: 1px solid gray;
+                .star-icon{
+                margin-top: 10px;
+                width: 10%;
+                height: 40px;
+                object-fit: cover;
+                }
+              }
+            }
           
           }
 

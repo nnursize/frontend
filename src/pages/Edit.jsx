@@ -87,34 +87,34 @@ const Edit=()=>{
                         <input style={{display:"none"}} type="file" name="" id="file" onChange={e=>setImg(e.target.files[0])}/> 
                         <label className="file" htmlFor="file">Upload image</label> 
                         <div className="buttons">
-                            <button onClick={handleClick}>Update</button>
+                            <button onClick={handleClick}>Done</button>
                         </div>     
                 </div>
                 <div className="item">
                     <h1>Genre</h1>
                     <div className="genre">
-                     <input type="radio" checked={genre==="art"} name="genre" value="art" id="art" onChange={handleChange}/>
-                     <label htmlFor="art">Art</label>
+                     <input type="radio" checked={genre==="comedy"} name="genre" value="comedy" id="comedy" onChange={handleChange}/>
+                     <label htmlFor="comedy">Comedy</label>
                     </div>
                     <div className="genre">
-                     <input type="radio" checked={genre==="science"} name="genre" value="science" id="science" onChange={handleChange}/>
-                     <label htmlFor="science">Science</label>
+                     <input type="radio" checked={genre==="drama"} name="genre" value="drama" id="drama" onChange={handleChange}/>
+                     <label htmlFor="drama">Drama</label>
                     </div>
                     <div className="genre">
-                     <input type="radio" checked={genre==="tech"} name="genre" value="tech" id="tech" onChange={handleChange}/>
-                     <label htmlFor="tech">Tech</label>
+                     <input type="radio" checked={genre==="romance"} name="genre" value="romance" id="romance" onChange={handleChange}/>
+                     <label htmlFor="romance">Romance</label>
                     </div>
                     <div className="genre">
-                     <input type="radio" checked={genre==="cinema"} name="genre" value="cinema" id="cinema" onChange={handleChange}/>
-                     <label htmlFor="cinema">Cinema</label>
+                     <input type="radio" checked={genre==="scifi"} name="genre" value="scifi" id="scifi" onChange={handleChange}/>
+                     <label htmlFor="scifi">Sci-Fi</label>
                     </div>
                     <div className="genre">
-                     <input type="radio" checked={genre==="design"} name="genre" value="design" id="design" onChange={handleChange}/>
-                     <label htmlFor="design">Design</label>
+                     <input type="radio" checked={genre==="horror"} name="genre" value="horror" id="horror" onChange={handleChange}/>
+                     <label htmlFor="horror">Horror</label>
                     </div>
                     <div className="genre">
-                     <input type="radio" checked={genre==="food"} name="genre" value="food" id="food" onChange={handleChange}/>
-                     <label htmlFor="food">Food</label>
+                     <input type="radio" checked={genre==="adventure"} name="genre" value="adventure" id="adventure" onChange={handleChange}/>
+                     <label htmlFor="adventure">Adventure</label>
                     </div>
                 </div>
             </div>

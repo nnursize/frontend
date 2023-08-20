@@ -1,4 +1,4 @@
-import Logo from "../img/logo.png"
+import Logo from "../img/me.png"
 import { Link } from "react-router-dom"
 import React, { useContext } from "react"
 import { AuthContext } from "../context/authContext";
@@ -19,23 +19,23 @@ const Navbar=()=>{
                 </div>
                 <div className="links">
 
-                    <Link className="link" to="/?genre=art">
-                        <h6>ART</h6>
+                    <Link className="link" to="/?genre=comedy">
+                        <h6>COMEDY</h6>
                     </Link>
-                    <Link className="link" to="/?genre=science">
-                        <h6>SCIENCE</h6>
+                    <Link className="link" to="/?genre=drama">
+                        <h6>DRAMA</h6>
                     </Link>
-                    <Link className="link" to="/?genre=technology">
-                        <h6>TECH</h6>
+                    <Link className="link" to="/?genre=romance">
+                        <h6>ROMANCE</h6>
                     </Link>
-                    <Link className="link" to="/?genre=cinema">
-                        <h6>CINEMA</h6>
+                    <Link className="link" to="/?genre=scifi">
+                        <h6>SCI-FI</h6>
                     </Link>
-                    <Link className="link" to="/?genre=design">
-                        <h6>DESIGN</h6>
+                    <Link className="link" to="/?genre=horror">
+                        <h6>HORROR</h6>
                     </Link>
-                    <Link className="link" to="/?genre=food">
-                        <h6>FOOD</h6>
+                    <Link className="link" to="/?genre=adventure">
+                        <h6>ADVENTURE</h6>
                     </Link>
                     <form>
                         <input type="search" placeholder="Search..."/>
@@ -44,7 +44,19 @@ const Navbar=()=>{
                     
                     {str1 === str2 && (
                     <Link className="link" to="/edit">
-                        <h6>ADD MOVIE</h6>
+                        <h6>Add Movie</h6>
+                    </Link>
+                    )}
+
+                    {str1 === str2 && (
+                    <Link className="link" to="/director">
+                        <h6>Add Director</h6>
+                    </Link>
+                    )}
+
+                    {str1 === str2 && (
+                    <Link className="link" to="/actor">
+                        <h6>Add Actor</h6>
                     </Link>
                     )}
                     <span>{currentUser?.username}</span>
