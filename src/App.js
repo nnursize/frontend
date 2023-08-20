@@ -9,11 +9,13 @@ import { Outlet } from "react-router-dom"
 import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 
-import Home from "./pages/Home"
+import Homepage from "./pages/Homepage"
 import Register from "./pages/Register"
 import Login from "./pages/Login"
-import Single from "./pages/Single"
+import Film from "./pages/Film"
 import Edit from "./pages/Edit"
+import Actor from "./pages/Actor"
+import Director from "./pages/Director"
 import "./style.scss"
 
 const Layout=()=>{
@@ -33,11 +35,11 @@ const router=createBrowserRouter([
     children:[
       {
         path:"/",
-        element: <Home/>
+        element: <Homepage/>
       },
       {
         path:"/movie/:d",
-        element: <Single/>
+        element: <Film/>
       },
       {
         path:"/edit",
@@ -58,8 +60,16 @@ const router=createBrowserRouter([
     element: <Edit/>,
   },
   {
-    path:"/single",
-    element: <Single/>,
+    path:"/film",
+    element: <Film/>,
+  },
+  {
+    path:"/actor",
+    element: <Actor/>,
+  },
+  {
+    path:"/director",
+    element: <Director/>,
   },
 ]);
 
