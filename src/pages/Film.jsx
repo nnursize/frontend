@@ -139,7 +139,7 @@ const Film=()=>{
 
             <div className="ranking">
                 <div className="ranking-row1">       
-                    <h3>Puan Ver</h3>
+                    <h3>Rate</h3>
                     <label>
                         <input type="radio" name="option" value="1" checked={selectedScore === '1'} onChange={handleScoreChange} />
                     1</label>
@@ -173,7 +173,7 @@ const Film=()=>{
                         <input type="radio" name="option" value="10" checked={selectedScore === '10'} onChange={handleScoreChange} />
                     10</label>
                 </div>
-                {selectedScore && <p>Verdiğiniz Puan: {selectedScore}</p>}
+                {selectedScore && <p>Given Score: {selectedScore}</p>}
                 <img className="star-icon" src={Star} alt=""/>
                 <p className="average-score">{movie_score}/10</p>  
             </div> 
